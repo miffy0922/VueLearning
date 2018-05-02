@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoList</title>
+</head>
+
+<body>
+    <div id="todolist">
+        <input type="text" placeholder="请输入事项" @keyup.enter="addTodo(newTodo)" v-model="newTodo">
+        <h3>事项列表</h3>
+        <ul>
+            <li v-for="todo in todos">
+                {{todo.content}}
+                —— <a href="#" @click.prevent="removeTodo(todo)">删除</a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="VueDemo.js"></script>
+</body>
+
+</html>
