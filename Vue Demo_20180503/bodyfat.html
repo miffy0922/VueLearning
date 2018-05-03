@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>体脂计算器</title>
+</head>
+
+<body>
+    <div id="app">
+        路人A体脂肪：<input type="text" v-model="a">
+        <br>
+        路人B体脂肪：<input type="text" v-model="b">
+        <ul>
+            <li>谁的体脂肪比较重？：{{whoHeavey}}</li>
+            <li>A跟一般国人的体脂肪差多少？：{{judgeA}}</li>
+        </ul>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+        var app = new new Vue({
+            el: '#app',
+            data: {
+                a:0,
+                b:0,
+                BMI:20
+            },
+            computed: {
+                whoHeavey: function(){
+                    if(this.a>this.b){
+                        return 'a比较重'
+                    }else if(this.a<this.b){
+                        return 'b比较重'
+                    }else{
+                        return '一样重'
+                    }
+                },
+                judgeA: function(){
+                    return this.a - this.BMI
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
